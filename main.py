@@ -97,9 +97,9 @@ def remove_fakes(file_name):
     Reads reviews and removes fakes
     """
     df = pd.read_csv(file_name, sep='\t', header=None)
-    max_lim = min(30, len(df[0])-1)
-    texts = df[0].tolist()[:30]
-    ratings = df[1].tolist()[:30]
+
+    texts = df[0].tolist()
+    ratings = df[1].tolist()
 
     legit_reviews = []
     legit_ratings = []
