@@ -115,7 +115,7 @@ def remove_fakes(file_name):
 
 def process(product_url: str, message=""):
 
-    # scrape(product_url)
+    scrape(product_url)
     reviews, ratings, fake_count = remove_fakes('./store/sample_output.txt')
 
     df = pd.DataFrame({'text': reviews, 'rating': ratings})
