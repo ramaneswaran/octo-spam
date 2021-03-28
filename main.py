@@ -1,4 +1,5 @@
 from typing import List, Optional
+from wordcloud import WordCloud
 
 import os 
 import re
@@ -120,10 +121,9 @@ def process(product_url: str, message=""):
 
     df = pd.DataFrame({'text': reviews, 'rating': ratings})
     df.to_csv('./store/final.txt', header=None, index=None, sep='\t')
-
-    f = open("werk.txt", "w")
-    f.write(product_url)
-    f.close()
+    text = ' '.join(reviews)
+    wordcloud = WordCloud(max_font_size=40).generate(text)
+    cloud.to_file('./static/cloud.png')
 
 
 @app.get("/")
